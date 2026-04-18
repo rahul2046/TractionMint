@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TractionMint is an elite LinkedIn marketing agency helping bold brands generate inbound leads.">
+<title>TractionMint — LinkedIn Marketing Agency for Brands</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; background: #FFFFFF; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ─── TOKENS (PREMIUM AGENCY EDITION) ──────────────────────── */
+:root {
+  --primary:      #4F46E5; /* Vibrant Indigo */
+  --primary-hover:#4338CA;
+  --secondary:    #0F172A; /* Deep Slate / Navy */
+  --accent:       #EEF2FF; /* Light Blue BG */
+  --accent-grad:  linear-gradient(135deg, #4F46E5, #E11D48, #F59E0B);
+  --bg-main:      #FAFAFA;
+  --bg-alt:       #F1F5F9; /* Slate 100 */
+  --text-heading: #0F172A;
+  --text-body:    #475569;
+  --text-muted:   #64748B;
+  --border:       #E2E8F0;
+  --radius-sm:    8px;
+  --radius-md:    16px;
+  --radius-lg:    24px;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md:    0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+  --shadow-lg:    0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+}
+
+/* ─── TYPOGRAPHY ───────────────────────────────────────────── */
+h1, h2, h3, h4, .logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-heading);
+}
+
+.text-gradient {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── 3D & MOTION EFFECTS ──────────────────────────────────── */
+.bg-blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+  border-radius: 50%;
+  animation: floatBlob 10s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+.blob-1 { top: -10%; left: -5%; width: 500px; height: 500px; background: var(--primary); }
+.blob-2 { bottom: -20%; right: -10%; width: 600px; height: 600px; background: #38BDF8; animation-delay: -5s; animation-duration: 15s; }
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate(50px, 30px) scale(1.1) rotate(15deg); }
+}
+
+.floating {
+  animation: floatElement 4s ease-in-out infinite;
+}
+@keyframes floatElement {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+.tilt-card:hover {
+  z-index: 10;
+  box-shadow: 0 30px 60px -12px rgba(37, 99, 235, 0.15), 0 18px 36px -18px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── LAYOUT ───────────────────────────────────────────────── */
+html { scroll-behavior: smooth; font-size: 16px; background: #FAFAFA; }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--text-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
+.section { padding: 96px 0; }
+
+/* ─── NAV ──────────────────────────────────────────────────── */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 80px;
+}
+.nav-logo { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--secondary); }
+.nav-logo span { color: var(--primary); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-size: 15px; font-weight: 500; color: var(--text-body); transition: color 0.2s; }
+.nav-links a:hover { color: var(--primary); }
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 600;
+  padding: 12px 28px; border-radius: var(--radius-sm);
+  background: var(--accent-grad); color: #FFF;
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease infinite;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+  border: none;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(225, 29, 72, 0.4); }
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 600;
+  padding: 12px 28px; border-radius: var(--radius-sm);
+  background: #FFF; color: var(--text-heading);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background: var(--bg-alt); border-color: #CBD5E1; }
+
+/* ─── HERO (Image 1 of 2) ──────────────────────────────────── */
+#hero {
+  padding: 160px 0 80px;
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 100px;
+  background: var(--accent); color: var(--primary);
+  font-size: 13px; font-weight: 600; margin-bottom: 24px;
+}
+.hero-headline {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+  margin-bottom: 24px;
+}
+.hero-sub {
+  font-size: 18px; line-height: 1.6; color: var(--text-body);
+  margin-bottom: 40px; max-width: 540px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-image-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 600px;
+  transform: perspective(1000px);
+}
+.hero-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── LOGO CLOUD ───────────────────────────────────────────── */
+.logo-cloud {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  position: relative;
+}
+.logo-cloud::before, .logo-cloud::after {
+  content: ''; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; pointer-events: none;
+}
+.logo-cloud::before { left: 0; background: linear-gradient(to right, var(--bg-main), transparent); }
+.logo-cloud::after { right: 0; background: linear-gradient(to left, var(--bg-main), transparent); }
+
+.logo-cloud p { text-align: center; font-size: 14px; font-weight: 700; color: var(--text-muted); margin-bottom: 32px; letter-spacing: 0.1em; }
+.logo-track { 
+  display: flex; width: max-content; gap: 80px; 
+  animation: marquee 30s linear infinite; opacity: 0.8;
+  padding-left: 80px;
+}
+.logo-track span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 24px; color: var(--text-muted); transition: color 0.3s; }
+.logo-track span:hover { color: var(--primary); }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── SHARED TYPOGRAPHY ────────────────────────────────────── */
+.section-header { text-align: center; margin-bottom: 64px; max-width: 640px; margin-inline: auto; }
+.section-tag { font-size: 14px; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+.section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
+.section-desc { font-size: 18px; color: var(--text-body); line-height: 1.6; }
+
+/* ─── THE PROBLEM (Image 2 of 2) ───────────────────────────── */
+#problem { background: #FFF; position: relative; }
+.problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2; }
+.problem-image-wrapper { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); height: 500px; transform: perspective(1000px); }
+.problem-img { width: 100%; height: 100%; object-fit: cover; }
+.problem-list { margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+.problem-item { display: flex; gap: 16px; align-items: flex-start; }
+.problem-icon { color: #EF4444; flex-shrink: 0; margin-top: 2px; }
+.problem-text h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.problem-text p { font-size: 15px; color: var(--text-body); line-height: 1.6; }
+
+/* ─── ABOUT US ─────────────────────────────────────────────── */
+#about { background: var(--bg-alt); }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.about-text h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--text-heading); font-family: 'Plus Jakarta Sans', sans-serif;}
+.about-text p { font-size: 18px; color: var(--text-body); line-height: 1.6; margin-bottom: 24px; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+.about-stat-box { background: #FFF; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+.about-stat-num { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.about-stat-label { font-size: 14px; font-weight: 600; color: var(--text-heading); }
+.about-image-card { background: var(--secondary); color: #FFF; padding: 48px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+.about-image-card::before { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 60%); pointer-events: none; }
+.about-image-card h3 { color: #FFF; font-size: 24px; margin-bottom: 16px; }
+.about-image-card p { color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.6; margin-bottom: 32px; }
+.about-image-card p:last-child { margin-bottom: 0; }
+
+/* ─── FOUNDER SECTION ──────────────────────────────────────── */
+#founder { background: #FFF; }
+.founder-inner { 
+  display: grid; grid-template-columns: 1fr 2.5fr; gap: 48px; align-items: center; 
+  background: var(--bg-alt); padding: 48px; border-radius: var(--radius-lg); 
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+}
+.founder-avatar { 
+  width: 100%; aspect-ratio: 1; border-radius: var(--radius-md); 
+  background: var(--accent-grad); background-size: 200% 200%; 
+  animation: gradientFlow 5s ease infinite; display: flex; 
+  align-items: center; justify-content: center; color: #FFF; 
+  font-size: 64px; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; 
+  box-shadow: var(--shadow-md); 
+}
+@media (max-width: 992px) { 
+  .founder-inner { grid-template-columns: 1fr; padding: 32px; gap: 32px; } 
+  .founder-avatar { max-width: 200px; margin: 0 auto; } 
+}
+
+/* ─── WHO WE HELP (Inspired by Anchors.in) ─────────────────── */
+#who-we-help { background: #FFF; }
+.avatars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; z-index: 2; }
+.avatar-card {
+  background: #FFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 40px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+  background: var(--accent-grad); background-size: 200% 200%; animation: gradientFlow 5s ease infinite;
+  opacity: 0; transition: opacity 0.3s;
+}
+.avatar-card:hover::before { opacity: 1; }
+.avatar-icon { font-size: 32px; margin-bottom: 24px; display: inline-block; }
+.avatar-title { font-size: 22px; font-weight: 800; margin-bottom: 16px; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-heading); }
+.avatar-desc { font-size: 16px; color: var(--text-body); line-height: 1.6; margin-bottom: 24px; }
+.avatar-list { list-style: none; }
+.avatar-list li { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-muted); margin-bottom: 12px; font-weight: 500; }
+.avatar-list li::before { content: '✓'; color: var(--primary); font-weight: 800; }
+
+/* ─── SERVICES (Icons only) ────────────────────────────────── */
+#services { background: var(--bg-alt); position: relative; overflow: hidden; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; position: relative; z-index: 2; }
+.svc-card {
+  background: #FFF;
+  background: rgba(255,255,255,0.03); padding: 40px; border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+}
+.process-num {
+  flex-shrink: 0;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--accent-grad); color: #FFF;
+  background-size: 200% 200%; animation: gradientFlow 5s ease infinite;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.4);
+}
+.process-text h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #FFF; }
+.process-text p { font-size: 16px; color: #CBD5E1; line-height: 1.6; }
+
+/* ─── PROOF & TESTIMONIALS (Initials only) ─────────────────── */
+#proof { background: #FFF; }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 80px;
+}
+.stat-box {
+  text-align: center; padding: 48px 32px;
+  background: var(--bg-alt); border-radius: var(--radius-md);
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+}
+.stat-num { font-size: 48px; font-weight: 800; color: var(--primary); margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.stat-label { font-size: 16px; font-weight: 500; color: var(--text-heading); }
+
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.tcard {
+  background: var(--bg-alt); border: 1px solid var(--border); padding: 32px;
+  border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+}
+.tcard-quote { font-size: 16px; color: var(--text-body); line-height: 1.6; font-style: italic; margin-bottom: 24px; }
+.tcard-author { display: flex; align-items: center; gap: 16px; }
+.tcard-initials {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent); color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.tcard-info h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.tcard-info p { font-size: 13px; color: var(--text-muted); }
+
+/* ─── PRICING ──────────────────────────────────────────────── */
+#pricing { background: var(--bg-alt); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.pricing-card {
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: 40px 32px; text-align: left; background: #FFF;
+  display: flex; flex-direction: column;
+  transform: perspective(1000px);
+}
+.pricing-card.popular {
+  background: var(--secondary);
+  color: #FFF;
+  border: 1px solid rgba(79, 70, 229, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.4);
+  position: relative;
+  transform: scale(1.05) perspective(1000px);
+  z-index: 5;
+}
+.pricing-card.popular .pricing-name { color: #FFF; }
+.pricing-card.popular .pricing-price { color: #FFF; }
+.pricing-card.popular .pricing-price span { color: #94A3B8; }
+.pricing-card.popular .pricing-desc { color: #CBD5E1; border-bottom-color: rgba(255,255,255,0.1); }
+.pricing-card.popular .pricing-features li { color: #E2E8F0; }
+.popular-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--accent-grad); color: #FFF; font-size: 12px; font-weight: 800;
+  padding: 6px 20px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.1em;
+  background-size: 200% 200%; animation: gradientFlow 5s ease infinite;
+  box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+}
+.pricing-name { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+.pricing-price { font-size: 40px; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-heading); margin-bottom: 8px; }
+.pricing-price span { font-size: 16px; color: var(--text-muted); font-weight: 500; }
+.pricing-desc { font-size: 15px; color: var(--text-body); margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+.pricing-features { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+.pricing-features li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-body); margin-bottom: 16px; }
+.pricing-features svg { color: var(--primary); flex-shrink: 0; }
+.btn-pricing { width: 100%; }
+
+/* ─── FAQ ──────────────────────────────────────────────────── */
+#faq { background: #FFF; }
+.faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
+.faq-item { background: var(--bg-alt); border: 1px solid var(--border); padding: 32px; border-radius: var(--radius-md); }
+.faq-item h4 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.faq-item p { font-size: 15px; color: var(--text-body); line-height: 1.6; }
+
+/* ─── CTA SECTION ──────────────────────────────────────────── */
+#cta { 
+  background: var(--secondary); 
+  position: relative; overflow: hidden;
+  color: #FFF; padding: 120px 0; text-align: center; 
+}
+#cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--accent-grad); opacity: 0.15;
+  background-size: 200% 200%; animation: gradientFlow 10s ease infinite;
+}
+#cta .container { position: relative; z-index: 2; }
+#cta .section-title, #cta .section-desc { color: #FFF; }
+#cta .section-desc { opacity: 0.8; margin-bottom: 40px; }
+.cta-buttons { display: flex; justify-content: center; gap: 16px; }
+
+/* ─── FOOTER ───────────────────────────────────────────────── */
+footer { background: #F8FAFC; padding: 80px 0 40px; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 64px; margin-bottom: 64px; }
+.footer-brand .logo { font-size: 24px; font-weight: 800; margin-bottom: 16px; color: var(--text-heading); }
+.footer-brand .logo span { color: var(--primary); }
+.footer-brand p { color: var(--text-body); font-size: 15px; max-width: 320px; line-height: 1.6; }
+.footer-col h4 { font-size: 16px; font-weight: 700; margin-bottom: 24px; color: var(--text-heading); }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.footer-col a { color: var(--text-body); font-size: 15px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--primary); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 32px; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 14px; }
+
+/* ─── ANIMATIONS ───────────────────────────────────────────── */
+.fade-up { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-up.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Typewriter Cursor Effect */
+.typewriter-cursor::after {
+  content: '|';
+  color: var(--primary);
+  display: inline-block;
+  animation: blinkCursor 0.8s step-end infinite;
+  margin-left: 4px;
+}
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── MOBILE RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 992px) {
+  .hero-inner, .problem-inner, .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-image-wrapper, .problem-image-wrapper { height: 400px; }
+  .services-grid, .stats-grid, .testimonials-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .nav-links, .nav-cta-group { display: none; }
+}
+@media (max-width: 600px) {
+  .process-item { flex-direction: column; gap: 20px; padding: 24px; }
+  .hero-headline { font-size: 36px; }
+  .section { padding: 64px 0; }
+  .cta-buttons { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Traction<span>Mint</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How We Work</a></li>
+      <li><a href="#proof">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <div class="nav-cta-group">
+      <a href="#cta" class="btn-primary">Book a Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO (Image 1 of 2) ─── -->
+<section id="hero">
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="container hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-tag floating">Elite Marketing Agency</div>
+      <h1 class="hero-headline"><span id="typewriter" class="typewriter-cursor text-gradient">TractionMint.</span><br>The Agency for Bold Brands.</h1>
+      <p class="hero-sub">We build powerful content engines that turn your LinkedIn audience into a highly profitable community, generating relentless inbound lead flow and automated revenue.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn-primary">Book a Discovery Call</a>
+        <a href="#services" class="btn-secondary">View Our Services</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper tilt-card fade-up">
+      <!-- IMAGE 1 -->
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80" alt="Agency Team working" class="hero-img">
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOGO CLOUD ─── -->
+<div class="logo-cloud">
+  <div class="container" style="position: relative; z-index: 3;">
+    <p>TRUSTED BY FOUNDERS AT HIGH-GROWTH COMPANIES</p>
+  </div>
+  <div class="logo-track">
+    <!-- First set -->
+    <span>AcmeCorp</span><span>TechNova</span><span>GlobalSynergy</span><span>ApexVentures</span><span>NextGen Systems</span>
+    <!-- Duplicated set for seamless loop -->
+    <span>AcmeCorp</span><span>TechNova</span><span>GlobalSynergy</span><span>ApexVentures</span><span>NextGen Systems</span>
+  </div>
+</div>
+
+<!-- ─── THE PROBLEM (Image 2 of 2) ─── -->
+<section id="problem" class="section">
+  <div class="container problem-inner">
+    <div class="problem-image-wrapper tilt-card fade-up">
+      <!-- IMAGE 2 -->
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Strategic Planning" class="problem-img">
+    </div>
+    <div class="problem-content fade-up">
+      <span class="section-tag">The Problem</span>
+      <h2 class="section-title">Stop wasting time on LinkedIn without ROI.</h2>
+      <p class="section-desc">Most founders know LinkedIn is a goldmine, but they treat it like a chore. Generic agencies don't help—they post fluff that gets zero engagement from decision-makers.</p>
+      
+      <div class="problem-list">
+        <div class="problem-item">
+          <svg class="problem-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div class="problem-text">
+            <h4>No Unified Strategy</h4>
+            <p>You post randomly without a clear funnel or positioning, attracting peers instead of high-value prospects.</p>
+          </div>
+        </div>
+        <div class="problem-item">
+          <svg class="problem-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div class="problem-text">
+            <h4>Inconsistent Execution</h4>
+            <p>Writing takes hours. You get busy, ghost your audience for weeks, and the algorithm forgets you exist.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT US ─── -->
+<section id="about" class="section">
+  <div class="container about-inner">
+    <div class="about-text fade-up">
+      <span class="section-tag">About Us</span>
+      <h2>We built the agency we wished we had as founders.</h2>
+      <p>TractionMint was born out of frustration. Traditional PR is unmeasurable, ads are getting expensive, and outbound sales is dying.</p>
+      <p>We realized that executive personal branding on LinkedIn was the highest-leverage growth channel available for B2B companies. We are a team of ghostwriters, strategists, and growth engineers dedicated to making you the undeniable leader in your space.</p>
+      <div class="about-stats">
+         <div class="about-stat-box tilt-card">
+           <div class="about-stat-num">10M+</div>
+           <div class="about-stat-label">Views Generated</div>
+         </div>
+         <div class="about-stat-box tilt-card">
+           <div class="about-stat-num">$12M</div>
+           <div class="about-stat-label">Client Pipeline</div>
+         </div>
+      </div>
+    </div>
+    <div class="about-image-card tilt-card fade-up">
+      <h3>Our Mission</h3>
+      <p>To transform 100 B2B founders into industry thought leaders by 2026, turning their organic presence into their most profitable acquisition channel.</p>
+      <br>
+      <h3>Why "TractionMint"?</h3>
+      <p>We don't just mint content; we mint actual <strong>traction</strong>. We measure our success in booked meetings, monetized communities, and tangible revenue generated for our clients—not just vanity metrics and likes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHO WE HELP (Inspired by Anchors.in) ─── -->
+<section id="who-we-help" class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Who We Help</span>
+      <h2 class="section-title">Built for the Creator-Founder.</h2>
+      <p class="section-desc">We engineer authority and monetization systems for leaders who want to scale their influence into tangible revenue.</p>
+    </div>
+    
+    <div class="avatars-grid">
+      <div class="avatar-card tilt-card fade-up">
+        <span class="avatar-icon">🚀</span>
+        <h3 class="avatar-title">B2B Founders & CEOs</h3>
+        <p class="avatar-desc">Stop relying on expensive outbound. Build a personal brand that acts as a magnet for enterprise clients, top talent, and investors.</p>
+        <ul class="avatar-list">
+          <li>Raise venture capital faster</li>
+          <li>Lower Customer Acquisition Cost (CAC)</li>
+          <li>Establish category leadership</li>
+        </ul>
+      </div>
+
+      <div class="avatar-card tilt-card fade-up" style="transition-delay: 0.1s;">
+        <span class="avatar-icon">💡</span>
+        <h3 class="avatar-title">Consultants & Coaches</h3>
+        <p class="avatar-desc">Break out of the time-for-money trap. We help you productize your knowledge and funnel your audience into high-ticket cohorts and communities.</p>
+        <ul class="avatar-list">
+          <li>Sell high-ticket advisory</li>
+          <li>Launch paid communities</li>
+          <li>Monetize digital products</li>
+        </ul>
+      </div>
+
+      <div class="avatar-card tilt-card fade-up" style="transition-delay: 0.2s;">
+        <span class="avatar-icon">⚡</span>
+        <h3 class="avatar-title">Agency Owners</h3>
+        <p class="avatar-desc">You build for others, but neglect your own brand. We ghostwrite your insights to attract premium retainers and partnerships directly to your inbox.</p>
+        <ul class="avatar-list">
+          <li>Consistent inbound deal flow</li>
+          <li>Premium retainer positioning</li>
+          <li>Attract high-level partnerships</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES (Icons instead of images) ─── -->
+<section id="services" class="section">
+  <div class="bg-blob blob-1" style="background: #E2E8F0; left: auto; right: -10%;"></div>
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Agency Services</span>
+      <h2 class="section-title">End-to-End LinkedIn Marketing</h2>
+      <p class="section-desc">We handle everything from strategic positioning to daily execution, turning your profile into a revenue-generating asset.</p>
+    </div>
+    <div class="services-grid">
+      
+      <div class="svc-card tilt-card fade-up">
+        <div class="svc-icon-wrap floating" style="animation-delay: 0s;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="svc-content" style="padding: 0;">
+          <h3 class="svc-title">Brand Authority & Strategy</h3>
+          <p class="svc-desc">We extract your expertise and forge a brand positioning so clear, your ideal prospects view you as the undisputed authority in your niche. No more competing on price.</p>
+        </div>
+      </div>
+
+      <div class="svc-card tilt-card fade-up">
+        <div class="svc-icon-wrap floating" style="animation-delay: 0.5s;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="svc-content" style="padding: 0;">
+          <h3 class="svc-title">Conversion Content</h3>
+          <p class="svc-desc">We build a psychological content framework designed to hit decision-makers precisely when they are ready to buy. We don't just chase likes; we write posts that drive intent.</p>
+        </div>
+      </div>
+
+      <div class="svc-card tilt-card fade-up">
+        <div class="svc-icon-wrap floating" style="animation-delay: 1s;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="svc-content" style="padding: 0;">
+          <h3 class="svc-title">Executive Ghostwriting</h3>
+          <p class="svc-desc">Premium content engineered in your exact voice. Our editorial team handles the heavy lifting—writing posts, visual carousels, and deep-dive threads. You review, we publish.</p>
+        </div>
+      </div>
+
+      <div class="svc-card tilt-card fade-up">
+        <div class="svc-icon-wrap floating" style="animation-delay: 1.5s;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="svc-content" style="padding: 0;">
+          <h3 class="svc-title">Audience Monetization & Funnels</h3>
+          <p class="svc-desc">Likes don't pay the bills. We build backend funnels—newsletters, lead magnets, and paid communities—to convert your viral attention into predictable, recurring revenue.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section id="process" class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Our Process</span>
+      <h2 class="section-title">How We Scale Brands</h2>
+      <p class="section-desc">A predictable, structured framework for generating LinkedIn inbound.</p>
+    </div>
+    
+    <div class="process-list">
+      <div class="process-item fade-up">
+        <div class="process-num">1</div>
+        <div class="process-text">
+          <h3>Targeting & Positioning Audit</h3>
+          <p>We begin by mapping your exact Ideal Customer Profile (ICP), analyzing competitors, and identifying the unique market gap your brand will own.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="process-num">2</div>
+        <div class="process-text">
+          <h3>The Content Payload</h3>
+          <p>Our editorial team develops your first 30 days of high-velocity, intent-driven content assets, perfectly matching your tone of voice and industry expertise.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="process-num">3</div>
+        <div class="process-text">
+          <h3>Algorithmic Distribution</h3>
+          <p>We deploy systematic engagement and distribution strategies to force your brand into the feeds of decision-makers and key industry figures.</p>
+        </div>
+      </div>
+      <div class="process-item fade-up">
+        <div class="process-num">4</div>
+        <div class="process-text">
+          <h3>Inbound Extraction</h3>
+          <p>We optimize your profile to act as a landing page, converting the massive spikes in attention and profile views into qualified, booked sales calls.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROOF & TESTIMONIALS (Initials instead of images) ─── -->
+<section id="proof" class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Agency Results</span>
+      <h2 class="section-title">Data-Driven Outcomes</h2>
+      <p class="section-desc">We don't optimize for vanity metrics. We optimize for pipeline. Real metrics from brands dominating their sector.</p>
+    </div>
+
+    <div class="stats-grid fade-up">
+      <div class="stat-box">
+        <div class="stat-num">320%</div>
+        <div class="stat-label">Avg. Traffic Surge</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">18x</div>
+        <div class="stat-label">Impression Growth</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5-12</div>
+        <div class="stat-label">Inbound Deals/Mo</div>
+      </div>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="tcard fade-up">
+        <p class="tcard-quote">"Within 60 days of partnering with TractionMint, we generated 3 inbound enterprise deals directly from LinkedIn. They transformed my profile into a lead machine."</p>
+        <div class="tcard-author">
+          <div class="tcard-initials">RS</div>
+          <div class="tcard-info">
+            <h4>Rohan Sharma</h4>
+            <p>CEO, BuildStack</p>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade-up">
+        <p class="tcard-quote">"They didn't just write posts; they engineered an authority brand for me. We're now booking meetings without having to send a single cold DM."</p>
+        <div class="tcard-author">
+          <div class="tcard-initials">PK</div>
+          <div class="tcard-info">
+            <h4>Priya Kapoor</h4>
+            <p>Founder, NexaHR</p>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade-up">
+        <p class="tcard-quote">"We closed a $50k deal from a single thread they ghostwrote. I've stopped all cold outreach entirely. TractionMint is our primary growth lever."</p>
+        <div class="tcard-author">
+          <div class="tcard-initials">AV</div>
+          <div class="tcard-info">
+            <h4>Arjun Varma</h4>
+            <p>Co-founder, Clarifin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section id="pricing" class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Pricing Packages</span>
+      <h2 class="section-title">Transparent Agency Pricing</h2>
+      <p class="section-desc">Straightforward packages designed to scale your authority and pipeline.</p>
+    </div>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card tilt-card fade-up">
+        <h3 class="pricing-name">Growth</h3>
+        <div class="pricing-price">$2,500<span>/mo</span></div>
+        <p class="pricing-desc">For founders looking to establish baseline authority and consistent presence.</p>
+        <ul class="pricing-features">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Brand Positioning Strategy</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 Optimized Posts / Week</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Profile Optimization</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monthly Analytics Report</li>
+        </ul>
+        <a href="#cta" class="btn-secondary btn-pricing">Get Started</a>
+      </div>
+
+      <div class="pricing-card popular fade-up">
+        <div class="popular-badge">Most Popular</div>
+        <h3 class="pricing-name">Scale</h3>
+        <div class="pricing-price">$4,500<span>/mo</span></div>
+        <p class="pricing-desc">For aggressive B2B brands wanting to generate consistent inbound leads.</p>
+        <ul class="pricing-features">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Growth, plus:</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 5 High-Impact Posts / Week</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 Deep-Dive Thread / Week</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Network Growth Management</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direct Message Scripting</li>
+        </ul>
+        <a href="#cta" class="btn-primary btn-pricing">Get Started</a>
+      </div>
+
+      <div class="pricing-card tilt-card fade-up">
+        <h3 class="pricing-name">Enterprise</h3>
+        <div class="pricing-price">Custom</div>
+        <p class="pricing-desc">For large teams needing multi-executive branding and massive distribution.</p>
+        <ul class="pricing-features">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Multiple Executive Profiles</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom Visual Carousels</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Video Scripting</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bi-weekly Strategy Calls</li>
+        </ul>
+        <a href="#cta" class="btn-secondary btn-pricing">Talk to Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Common Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item fade-up">
+        <h4>How long until we see inbound leads?</h4>
+        <p>While impressions and follower counts increase in the first 14 days, converting that attention into pipeline usually takes 45 to 60 days of consistent, high-quality execution.</p>
+      </div>
+      <div class="faq-item fade-up">
+        <h4>Do you write the posts for us?</h4>
+        <p>Yes. We operate as an executive ghostwriting service. We interview you, extract your insights, and our editorial team drafts the content perfectly matching your voice.</p>
+      </div>
+      <div class="faq-item fade-up">
+        <h4>Will this look like an agency is running my account?</h4>
+        <p>No. Our onboarding process involves deep tone-of-voice analysis. Your content will sound exactly like you on your most articulate day, not like generic marketing copy.</p>
+      </div>
+      <div class="faq-item fade-up">
+        <h4>Are there long-term contracts?</h4>
+        <p>We work on a rolling 90-day cycle, as this is the minimum time frame required to build a compounding algorithm system. After that, we operate month-to-month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MEET THE FOUNDER ─── -->
+<section id="founder" class="section">
+  <div class="container">
+    <div class="founder-inner fade-up">
+      <div class="tilt-card" style="width: 100%;">
+        <div class="founder-avatar">
+          RS
+        </div>
+      </div>
+      <div class="founder-content">
+        <span class="section-tag">Meet the Founder</span>
+        <h2 class="section-title" style="margin-bottom: 8px;">Reddy Rahul Saddala</h2>
+        <h4 style="color: var(--primary); font-weight: 600; margin-bottom: 24px; font-size: 18px;">Founder & CEO | LinkedIn Growth Strategist & Creator</h4>
+        <p class="section-desc">Rahul is a high-impact content creator and strategist who recognized a massive gap in how B2B founders build their personal brands. After successfully scaling his own digital footprint and decoding audience growth algorithms, he realized that traditional outbound marketing was dying—and that captured attention is the new currency.</p>
+        <p class="section-desc" style="margin-top: 16px;">TractionMint was born from his vision to help ambitious creators, consultants, and founders stop chasing leads and start attracting them. Today, he bridges the gap between viral attention and profitable business growth, engineering content systems that turn passive followers into high-ticket clients.</p>
+        <div style="margin-top: 32px;">
+          <a href="https://www.linkedin.com/in/reddy-rahul-saddala-ba70a8253/" target="_blank" class="btn-primary" style="display: inline-flex; gap: 10px; align-items: center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="cta" class="section">
+  <div class="container fade-up">
+    <h2 class="section-title">Ready to Dominate Your Niche?</h2>
+    <p class="section-desc">Stop leaving revenue on the table. Let's discuss how our agency can build your brand and scale your inbound pipeline on LinkedIn.</p>
+    <div class="cta-buttons">
+      <a href="mailto:hello@tractionmint.com" class="btn-primary" style="background:#FFF; color:var(--primary);">Book a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Traction<span>Mint</span></div>
+        <p>The premier LinkedIn marketing agency for brands and founders who demand market leadership and inbound revenue.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Agency Services</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Brand Authority</a></li>
+          <li><a href="#services">Conversion Content</a></li>
+          <li><a href="#services">Executive Ghostwriting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#proof">Case Studies</a></li>
+          <li><a href="mailto:hello@tractionmint.com">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TractionMint Agency. All rights reserved.</p>
+      <p>Privacy Policy | Terms of Service</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll Animation Observer
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-up').forEach(element => {
+  observer.observe(element);
+});
+
+// Typewriter Animation for Hero Headline
+document.addEventListener("DOMContentLoaded", () => {
+  const headline = document.getElementById('typewriter');
+  if (headline) {
+    const text = "TractionMint."; // Store the text
+    headline.textContent = ''; // Clear text on load
+    
+    let i = 0;
+    let isDeleting = false;
+    
+    function typeWriter() {
+      // Update text content
+      headline.textContent = text.substring(0, i);
+      
+      // Determine speed based on whether typing or deleting
+      let typeSpeed = isDeleting ? 40 : Math.floor(Math.random() * (70 - 40 + 1)) + 40;
+      
+      if (!isDeleting && i === text.length) {
+        // Pause at the end before deleting
+        typeSpeed = 2500;
+        isDeleting = true;
+      } else if (isDeleting && i === 0) {
+        // Pause at the beginning before typing again
+        isDeleting = false;
+        typeSpeed = 800;
+      }
+      
+      // Increment or decrement index
+      if (isDeleting) {
+        i--;
+      } else {
+        i++;
+      }
+      
+      setTimeout(typeWriter, typeSpeed);
+    }
+    
+    // Start typing slightly after the fade-up animation begins
+    setTimeout(typeWriter, 400);
+  }
+});
+
+// 3D Interactive Tilt Effect
+document.querySelectorAll('.tilt-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    // Check if on mobile to disable intensive 3D effects on touch screens
+    if (window.innerWidth <= 992) return;
+    
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate rotation (-10 to 10 degrees based on mouse position)
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    
+    // Apply transform (adding a slight 3D lift)
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.transition = 'transform 0.1s cubic-bezier(0.25, 0.8, 0.25, 1)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    if (window.innerWidth <= 992) return;
+    // Reset transform smoothly
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+  });
+});
+</script>
+</body>
+</html>
